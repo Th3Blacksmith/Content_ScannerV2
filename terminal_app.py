@@ -77,9 +77,9 @@ def end_banner():
                                                                                          ''' + Style.RESET_ALL)
 
 def process_start():
-    print('<====================================================>')
+    print(Fore.BLUE + '<====================================================>')
     print('<================= Process Starting =================>')
-    print('<====================================================>')
+    print('<====================================================>' + Style.RESET_ALL)
     print('')
     print('')
 
@@ -140,6 +140,7 @@ while choice != 'q':
             file_object.write(newurl)
             print(Fore.GREEN + '\nupdating urls...\n' + Style.RESET_ALL)
             time.sleep(1)
+            file_object.flush()
             with open(websites, encoding='utf-8-sig') as f:
                 URLs = [line.split()[0] for line in f]
                 print('The current URLs are: \n')
@@ -154,6 +155,7 @@ while choice != 'q':
             file_object.write(newwword)
             print(Fore.GREEN + '\nupdating wordlist...\n' + Style.RESET_ALL)
             time.sleep(1)
+            file_object.flush()
             wordlist = [line.strip() for line in open(keywords, encoding='utf-8-sig')]
             print('The current wordlist is: \n')
             print(Fore.YELLOW + str(wordlist) + Style.RESET_ALL)
